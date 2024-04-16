@@ -79,10 +79,11 @@ if input_operation == "Search News":
             top_links = links.head(50)
 
             def make_clickable(link):
+                click="Click Here"
                 # target _blank to open new window
                 # extract clickable text to display for your link
                 #text = link.split('=')[1]
-                return f'<a target="_blank" href="{link}">Click Here</a>'
+                return f'<a target="_blank" href="{link}">{click}</a>'
 
 
             # link is the column with hyperlinks
