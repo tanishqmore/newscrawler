@@ -73,7 +73,7 @@ if input_operation == "Search News":
                 t = text.replace('<link/>', "")
                 urls1.append(t)
 
-            links = pd.DataFrame("CLICK hERE", columns=['Links'])
+            links = pd.DataFrame(urls1, columns=['Links'])
             links = links.drop(0).reset_index()
             links = pd.DataFrame(links['Links'])
             top_links = links.head(50)
@@ -82,7 +82,7 @@ if input_operation == "Search News":
                 # target _blank to open new window
                 # extract clickable text to display for your link
                 #text = link.split('=')[1]
-                return f'<a target="_blank" href="{link}">{link}</a>'
+                return f'<a target="_blank" href="{link}">Click Here</a>'
 
 
             # link is the column with hyperlinks
@@ -125,7 +125,7 @@ if input_operation == "Search News":
                 t = text.replace('<link/>', "")
                 urls1.append(t)
 
-            links = pd.DataFrame("Click Here", columns=['Links'])
+            links = pd.DataFrame(urls1, columns=['Links'])
             links = links.drop(0).reset_index()
             links = pd.DataFrame(links['Links'])
 
