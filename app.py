@@ -78,31 +78,20 @@ if input_operation == "Search News":
             links = pd.DataFrame(links['Links'])
             top_links = links.head(50)
 
-           def extract_domain(link):
-    # Extract the domain name from the link
-    domain = re.findall(r'(?<=https?://)[^/]+', link)
-    if domain:
-        return domain[0]
-    else:
-        return "Read More"
-
-
 def make_clickable(link):
-    # Create a clickable link
-    return f'<a target="_blank" href="{link}">Read More</a>'
+    # target _blank to open new window
+    # extract clickable text to display for your link
+    #text = link.split('=')[1]
+    return f'<a target="_blank" href="{link}">{link}</a>'
 
 
-# Apply the functions to the links
+# link is the column with hyperlinks
 links['Links'] = links['Links'].apply(make_clickable)
-links['Links'] = links['Links'].apply(extract_domain)
 
-# Combine the dataframes
+
 OUTPUT = pd.concat([headlines, links, source], axis=1)  # Normal
-
-# Display the modified dataframe
 st.info("Articles. as per ranking")
 st.write(OUTPUT.to_html(escape=False, index=False), unsafe_allow_html=True)
-
 
         elif input_sub_operation == "Display news summary":
             st.success("Fetching news summary")
