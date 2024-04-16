@@ -73,7 +73,7 @@ if input_operation == "Search News":
                 t = text.replace('<link/>', "")
                 urls1.append(t)
 
-            links = pd.DataFrame(urls1, columns=['Links'])
+            links = pd.DataFrame("CLICK hERE", columns=['Links'])
             links = links.drop(0).reset_index()
             links = pd.DataFrame(links['Links'])
             top_links = links.head(50)
@@ -125,7 +125,7 @@ if input_operation == "Search News":
                 t = text.replace('<link/>', "")
                 urls1.append(t)
 
-            links = pd.DataFrame(urls1, columns=['Links'])
+            links = pd.DataFrame("Click Here", columns=['Links'])
             links = links.drop(0).reset_index()
             links = pd.DataFrame(links['Links'])
 
