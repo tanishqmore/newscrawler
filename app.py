@@ -70,7 +70,7 @@ if input_operation == "Search News":
             # Removing <link> tag from urls
             urls1 = []
             for text in urls[:51]:
-                t = text.replace('Link Here', "")
+                t = text.replace('<link/>', "")
                 urls1.append(t)
 
             links = pd.DataFrame(urls1, columns=['Links'])
