@@ -14,7 +14,7 @@ image = Image.open("logo.png")
 st.image(image)
 
 # Web App Title
-st.title('''**News Crawler**''')
+st.title('''**IntelliAdora's News Crawler**''')
 
 #Fixed format of crawling site link
 url = 'https://news.google.com/rss/search?q='
@@ -78,22 +78,23 @@ if input_operation == "Search News":
             links = pd.DataFrame(links['Links'])
             top_links = links.head(50)
 
-def make_clickable(link):
-    # target _blank to open new window
-    # extract clickable text to display for your link
-    #text = link.split('=')[1]
-    return f'<a target="_blank" href="{link}">{link}</a>'
+            def make_clickable(link):
+                # target _blank to open new window
+                # extract clickable text to display for your link
+                #text = link.split('=')[1]
+                return f'<a target="_blank" href="{link}">{link}</a>'
 
 
-# link is the column with hyperlinks
-links['Links'] = links['Links'].apply(make_clickable)
+            # link is the column with hyperlinks
+            links['Links'] = links['Links'].apply(make_clickable)
 
 
-OUTPUT = pd.concat([headlines, links, source], axis=1)  # Normal
-st.info("Articles. as per ranking")
-st.write(OUTPUT.to_html(escape=False, index=False), unsafe_allow_html=True)
+            OUTPUT = pd.concat([headlines, links, source], axis=1)  # Normal
+            st.info("Articles. as per ranking")
+            st.write(OUTPUT.to_html(escape=False, index=False), unsafe_allow_html=True)
 
-            elif input_sub_operation == "Display news summary":
+
+        elif input_sub_operation == "Display news summary":
             st.success("Fetching news summary")
 
             # Add as many, separated by '-'
@@ -259,16 +260,3 @@ st.write(OUTPUT.to_html(escape=False, index=False), unsafe_allow_html=True)
 
                 SENTIMENT_OUTPUT = SENTIMENT_OUTPUT.drop(["Article","Sentiment"], axis =1)
                 st.write(SENTIMENT_OUTPUT.head(50).to_html(escape=False, index=False), unsafe_allow_html=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
