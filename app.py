@@ -93,7 +93,7 @@ OUTPUT = pd.concat([headlines, links, source], axis=1)  # Normal
 st.info("Articles. as per ranking")
 st.write(OUTPUT.to_html(escape=False, index=False), unsafe_allow_html=True)
 
-        elif input_sub_operation == "Display news summary":
+            elif input_sub_operation == "Display news summary":
             st.success("Fetching news summary")
 
             # Add as many, separated by '-'
